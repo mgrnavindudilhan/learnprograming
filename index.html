@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML ඉගෙන ගනිමු</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        
+        .sidebar {
+            flex: 1;
+            min-width: 250px;
+            background: #f0f4f8;
+            padding: 20px;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+        
+        .main-content {
+            flex: 3;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .lesson-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #3a7bd5;
+        }
+        
+        h2 {
+            color: #3a7bd5;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f4f8;
+        }
+        
+        h3 {
+            color: #00d2ff;
+            margin: 15px 0 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        ul {
+            list-style-type: none;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        li:last-child {
+            border-bottom: none;
+        }
+        
+        .code-example {
+            background: #2d3a4b;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .tag {
+            color: #ff79c6;
+        }
+        
+        .attribute {
+            color: #50fa7b;
+        }
+        
+        .value {
+            color: #f1fa8c;
+        }
+        
+        .comment {
+            color: #6272a4;
+        }
+        
+        .try-button {
+            display: inline-block;
+            background: #3a7bd5;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        
+        .try-button:hover {
+            background: #2c65c3;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #f0f4f8;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>HTML මූලික අධ්යයනය</h1>
+            <p class="subtitle">වෙබ් පිටු සෑදීමේ මූලික භාෂාව</p>
+        </header>
+        
+        <div class="content">
+            <div class="sidebar">
+                <h2>පාඩම් සැලැස්ම</h2>
+                <ul>
+                    <li>HTML හැැඳින්වීම</li>
+                    <li>මූලික ටැග්</li>
+                    <li>පිටු ව්යුහය</li>
+                    <li>පාඨ අංග</li>
+                    <li>සබැඳි සහ පින්තූර</li>
+                    <li>ලැයිස්තු</li>
+                    <li>වගු</li>
+                    <li>ආකෘති පත්ර</li>
+                </ul>
+            </div>
+            
+            <div class="main-content">
+                <div class="lesson-section">
+                    <h2>HTML හැැඳින්වීම</h2>
+                    <p>HTML (HyperText Markup Language) යනු වෙබ් පිටු සෑදීම සඳහා භාවිතා කරන මූලික භාෂාවයි. එය ටැග් (tags) භාවිතා කරමින් අන්තර්ගතය ව්යුහගත කරයි.</p>
+                    
+                    <div class="code-example">
+                        <span class="comment">&lt;!-- මෙය HTML අදහස් දැක්වීමකි --&gt;</span><br>
+                        <span class="tag">&lt;h1</span><span class="tag">&gt;</span>මගේ පළමු වෙබ් පිටුව<span class="tag">&lt;/h1&gt;</span><br>
+                        <span class="tag">&lt;p</span><span class="tag">&gt;</span>මෙය අප්‍රෙල් මාසයේ සිදු වන සිදුවීම් පිළිබඳ විස්තරයකි.<span class="tag">&lt;/p&gt;</span>
+                    </div>
+                    
+                    <a href="#" class="try-button">මෙය උත්සාහ කරන්න</a>
+                </div>
+                
+                <div class="lesson-section">
+                    <h2>මූලික HTML ටැග්</h2>
+                    <p>HTML ටැග් යුගල වශයෙන් යෙදේ: ආරම්භක ටැග් සහ අවසන් ටැග්. අවසන් ටැග් තුළ "/" ලකුණ ඇතුළත් වේ.</p>
+                    
+                    <h3>සුලභ ටැග් කිහිපයක්:</h3>
+                    <ul>
+                        <li><strong>&lt;html&gt;</strong> - HTML ලේඛනයේ මූල අංගය</li>
+                        <li><strong>&lt;head&gt;</strong> - මෙටාදත්ත අඩංගු කරයි</li>
+                        <li><strong>&lt;title&gt;</strong> - බ්‍රව්සර් ටැබ් එකේ පෙන්වන නම</li>
+                        <li><strong>&lt;body&gt;</strong> - දෘශ්ය අන්තර්ගතය අඩංගු කරයි</li>
+                        <li><strong>&lt;h1&gt;</strong> - ප්‍රධාන ශීර්ෂය</li>
+                        <li><strong>&lt;p&gt;</strong> - ඡේදය</li>
+                    </ul>
+                    
+                    <a href="#" class="try-button">ටැග් ගැන වැඩිදුර ඉගෙන ගන්න</a>
+                </div>
+                
+                <div class="lesson-section">
+                    <h2>HTML පිටු ව්යුහය</h2>
+                    <p>සෑම HTML ලේඛනයක්ම මූලික ව්යුහයක් අනුගමනය කරයි:</p>
+                    
+                    <div class="code-example">
+                        <span class="tag">&lt;!DOCTYPE html&gt;</span><br>
+                        <span class="tag">&lt;html&gt;</span><br>
+                        <span class="tag">&lt;head&gt;</span><br>
+                        &nbsp;&nbsp;<span class="tag">&lt;title&gt;</span>පිටුවේ මාතෘකාව<span class="tag">&lt;/title&gt;</span><br>
+                        <span class="tag">&lt;/head&gt;</span><br>
+                        <span class="tag">&lt;body&gt;</span><br>
+                        <br>
+                        &nbsp;&nbsp;<span class="tag">&lt;h1&gt;</span>මගේ පළමු ශීර්ෂය<span class="tag">&lt;/h1&gt;</span><br>
+                        &nbsp;&nbsp;<span class="tag">&lt;p&gt;</span>මගේ පළමු ඡේදය.<span class="tag">&lt;/p&gt;</span><br>
+                        <br>
+                        <span class="tag">&lt;/body&gt;</span><br>
+                        <span class="tag">&lt;/html&gt;</span>
+                    </div>
+                    
+                    <a href="#" class="try-button">පිටු ව්යුහය ගැන ඉගෙන ගන්න</a>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>HTML ඉගෙනීමේ මූලික පාඨමාලාව - සියලුම හිමිකම් ඇවිරිණි © 2023</p>
+        </footer>
+    </div>
+</body>
+</html>
