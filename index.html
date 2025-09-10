@@ -1,251 +1,329 @@
 <!DOCTYPE html>
-<html lang="si">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML ඉගෙන ගනිමු</title>
+    <title>Premium Book Library | Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background-color: #f5f7fa;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             overflow: hidden;
         }
         
-        header {
-            background: linear-gradient(135deg, #3a7bd5, #00d2ff);
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
-        .content {
+        .container {
+            width: 100%;
+            max-width: 900px;
+            height: 550px;
             display: flex;
-            flex-wrap: wrap;
-            padding: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
         }
         
-        .sidebar {
+        /* Book Introduction Section */
+        .book-intro {
             flex: 1;
-            min-width: 250px;
-            background: #f0f4f8;
-            padding: 20px;
-            border-radius: 8px;
-            margin-right: 20px;
-        }
-        
-        .main-content {
-            flex: 3;
-            min-width: 300px;
-            padding: 20px;
-        }
-        
-        .lesson-section {
-            margin-bottom: 30px;
-            padding: 20px;
-            border-radius: 8px;
-            background: white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border-left: 5px solid #3a7bd5;
-        }
-        
-        h2 {
-            color: #3a7bd5;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #f0f4f8;
-        }
-        
-        h3 {
-            color: #00d2ff;
-            margin: 15px 0 10px;
-        }
-        
-        p {
-            margin-bottom: 15px;
-        }
-        
-        ul {
-            list-style-type: none;
-            margin-bottom: 20px;
-        }
-        
-        li {
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        li:last-child {
-            border-bottom: none;
-        }
-        
-        .code-example {
-            background: #2d3a4b;
-            color: #f8f8f2;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 15px 0;
-            overflow-x: auto;
-            font-family: 'Courier New', monospace;
-        }
-        
-        .tag {
-            color: #ff79c6;
-        }
-        
-        .attribute {
-            color: #50fa7b;
-        }
-        
-        .value {
-            color: #f1fa8c;
-        }
-        
-        .comment {
-            color: #6272a4;
-        }
-        
-        .try-button {
-            display: inline-block;
-            background: #3a7bd5;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
             color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-top: 10px;
-            transition: background 0.3s;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            transition: all 0.5s ease;
         }
         
-        .try-button:hover {
-            background: #2c65c3;
+        .book-content {
+            transform: translateY(0);
+            opacity: 1;
+            transition: transform 0.8s ease, opacity 0.8s ease;
         }
         
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #f0f4f8;
+        .book-intro.hidden {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+        
+        .book-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: #f8d568;
+        }
+        
+        .book-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+        
+        .continue-btn {
+            background: #fdbb2d;
+            color: #1a2a6c;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+        
+        .continue-btn:hover {
+            background: #ffcc44;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Login Section */
+        .login-section {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        .login-title {
+            font-size: 2rem;
+            color: #1a2a6c;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .login-subtitle {
             color: #666;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .input-group {
+            width: 100%;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .input-group input:focus {
+            border-color: #1a2a6c;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(26, 42, 108, 0.2);
+        }
+        
+        .login-btn {
+            width: 100%;
+            background: linear-gradient(to right, #1a2a6c, #b21f1f);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .login-btn:hover {
+            background: linear-gradient(to right, #24378a, #c52c2c);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .options {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 15px;
             font-size: 0.9rem;
         }
         
+        .options a {
+            color: #1a2a6c;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .options a:hover {
+            color: #b21f1f;
+            text-decoration: underline;
+        }
+        
+        .keystroke-logger {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #777;
+            padding: 0 20px;
+        }
+        
+        .keystroke-logger span {
+            color: #b21f1f;
+            font-weight: 600;
+        }
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .content {
+            .container {
                 flex-direction: column;
+                height: auto;
+                max-width: 400px;
             }
             
-            .sidebar {
-                margin-right: 0;
-                margin-bottom: 20px;
+            .book-intro {
+                padding: 30px;
+            }
+            
+            .book-title {
+                font-size: 2rem;
+            }
+            
+            .book-text {
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>HTML මූලික අධ්යයනය</h1>
-            <p class="subtitle">වෙබ් පිටු සෑදීමේ මූලික භාෂාව</p>
-        </header>
-        
-        <div class="content">
-            <div class="sidebar">
-                <h2>පාඩම් සැලැස්ම</h2>
-                <ul>
-                    <li>HTML හැැඳින්වීම</li>
-                    <li>මූලික ටැග්</li>
-                    <li>පිටු ව්යුහය</li>
-                    <li>පාඨ අංග</li>
-                    <li>සබැඳි සහ පින්තූර</li>
-                    <li>ලැයිස්තු</li>
-                    <li>වගු</li>
-                    <li>ආකෘති පත්ර</li>
-                </ul>
-            </div>
-            
-            <div class="main-content">
-                <div class="lesson-section">
-                    <h2>HTML හැැඳින්වීම</h2>
-                    <p>HTML (HyperText Markup Language) යනු වෙබ් පිටු සෑදීම සඳහා භාවිතා කරන මූලික භාෂාවයි. එය ටැග් (tags) භාවිතා කරමින් අන්තර්ගතය ව්යුහගත කරයි.</p>
-                    
-                    <div class="code-example">
-                        <span class="comment">&lt;!-- මෙය HTML අදහස් දැක්වීමකි --&gt;</span><br>
-                        <span class="tag">&lt;h1</span><span class="tag">&gt;</span>මගේ පළමු වෙබ් පිටුව<span class="tag">&lt;/h1&gt;</span><br>
-                        <span class="tag">&lt;p</span><span class="tag">&gt;</span>මෙය අප්‍රෙල් මාසයේ සිදු වන සිදුවීම් පිළිබඳ විස්තරයකි.<span class="tag">&lt;/p&gt;</span>
-                    </div>
-                    
-                    <a href="#" class="try-button">මෙය උත්සාහ කරන්න</a>
-                </div>
-                
-                <div class="lesson-section">
-                    <h2>මූලික HTML ටැග්</h2>
-                    <p>HTML ටැග් යුගල වශයෙන් යෙදේ: ආරම්භක ටැග් සහ අවසන් ටැග්. අවසන් ටැග් තුළ "/" ලකුණ ඇතුළත් වේ.</p>
-                    
-                    <h3>සුලභ ටැග් කිහිපයක්:</h3>
-                    <ul>
-                        <li><strong>&lt;html&gt;</strong> - HTML ලේඛනයේ මූල අංගය</li>
-                        <li><strong>&lt;head&gt;</strong> - මෙටාදත්ත අඩංගු කරයි</li>
-                        <li><strong>&lt;title&gt;</strong> - බ්‍රව්සර් ටැබ් එකේ පෙන්වන නම</li>
-                        <li><strong>&lt;body&gt;</strong> - දෘශ්ය අන්තර්ගතය අඩංගු කරයි</li>
-                        <li><strong>&lt;h1&gt;</strong> - ප්‍රධාන ශීර්ෂය</li>
-                        <li><strong>&lt;p&gt;</strong> - ඡේදය</li>
-                    </ul>
-                    
-                    <a href="#" class="try-button">ටැග් ගැන වැඩිදුර ඉගෙන ගන්න</a>
-                </div>
-                
-                <div class="lesson-section">
-                    <h2>HTML පිටු ව්යුහය</h2>
-                    <p>සෑම HTML ලේඛනයක්ම මූලික ව්යුහයක් අනුගමනය කරයි:</p>
-                    
-                    <div class="code-example">
-                        <span class="tag">&lt;!DOCTYPE html&gt;</span><br>
-                        <span class="tag">&lt;html&gt;</span><br>
-                        <span class="tag">&lt;head&gt;</span><br>
-                        &nbsp;&nbsp;<span class="tag">&lt;title&gt;</span>පිටුවේ මාතෘකාව<span class="tag">&lt;/title&gt;</span><br>
-                        <span class="tag">&lt;/head&gt;</span><br>
-                        <span class="tag">&lt;body&gt;</span><br>
-                        <br>
-                        &nbsp;&nbsp;<span class="tag">&lt;h1&gt;</span>මගේ පළමු ශීර්ෂය<span class="tag">&lt;/h1&gt;</span><br>
-                        &nbsp;&nbsp;<span class="tag">&lt;p&gt;</span>මගේ පළමු ඡේදය.<span class="tag">&lt;/p&gt;</span><br>
-                        <br>
-                        <span class="tag">&lt;/body&gt;</span><br>
-                        <span class="tag">&lt;/html&gt;</span>
-                    </div>
-                    
-                    <a href="#" class="try-button">පිටු ව්යුහය ගැන ඉගෙන ගන්න</a>
-                </div>
+        <!-- Book Introduction Section -->
+        <div class="book-intro">
+            <div class="book-content">
+                <h1 class="book-title">The Digital Library</h1>
+                <p class="book-text">Welcome to our exclusive collection of digital knowledge. For centuries, books have been the keepers of wisdom, the transmitters of culture, and the spark of imagination. Now, we bring this timeless tradition into the digital age.</p>
+                <p class="book-text">To access our premium collection, please proceed to the login page. Your intellectual journey awaits.</p>
+                <button class="continue-btn" id="continueBtn">Continue to Login <i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
         
-        <footer>
-            <p>HTML ඉගෙනීමේ මූලික පාඨමාලාව - සියලුම හිමිකම් ඇවිරිණි © 2023</p>
-        </footer>
+        <!-- Login Section -->
+        <div class="login-section">
+            <h1 class="login-title">Member Login</h1>
+            <p class="login-subtitle">Access your premium account</p>
+            
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="username" placeholder="Username or Email" autocomplete="off">
+            </div>
+            
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" placeholder="Password" autocomplete="off">
+            </div>
+            
+            <button class="login-btn" id="loginBtn">Login Now</button>
+            
+            <div class="options">
+                <label>
+                    <input type="checkbox" checked> Remember me
+                </label>
+                <a href="#">Forgot Password?</a>
+            </div>
+            
+            <div class="keystroke-logger">
+                <p>Keystroke Logger: <span id="keyLogger"></span></p>
+            </div>
+        </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const continueBtn = document.getElementById('continueBtn');
+            const bookIntro = document.querySelector('.book-intro');
+            const loginBtn = document.getElementById('loginBtn');
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const keyLogger = document.getElementById('keyLogger');
+            
+            let typedKeys = '';
+            
+            // Handle continue button click
+            continueBtn.addEventListener('click', function() {
+                bookIntro.classList.add('hidden');
+                usernameInput.focus();
+            });
+            
+            // Handle login button click
+            loginBtn.addEventListener('click', function() {
+                const username = usernameInput.value;
+                const password = passwordInput.value;
+                
+                if(username && password) {
+                    alert('Login successful! Welcome to our premium library.');
+                    // In a real application, you would send this data to a server
+                    console.log('Username:', username);
+                    console.log('Password:', password);
+                    console.log('All typed keys:', typedKeys);
+                    
+                    // Reset form
+                    usernameInput.value = '';
+                    passwordInput.value = '';
+                    typedKeys = '';
+                    keyLogger.textContent = '';
+                } else {
+                    alert('Please enter both username and password.');
+                }
+            });
+            
+            // Key logging functionality
+            function handleKeyLog(event) {
+                // Don't log modifier keys
+                if(event.key.length > 1 && event.key !== ' ') return;
+                
+                // Add to our typed keys string
+                typedKeys += event.key;
+                
+                // Update the key logger display (mask passwords)
+                if(event.target.type === 'password') {
+                    keyLogger.textContent = typedKeys.replace(/./g, '*');
+                } else {
+                    keyLogger.textContent = typedKeys;
+                }
+            }
+            
+            // Add event listeners to inputs
+            usernameInput.addEventListener('keydown', handleKeyLog);
+            passwordInput.addEventListener('keydown', handleKeyLog);
+        });
+    </script>
 </body>
-</html>
+    </html>
